@@ -47,10 +47,10 @@
       </div>
     </div>
     <div class="container-fluid bg-home-1"></div>
-    <div class="container mt-4 title-home-1">
+    <div class="container mt-4 mb-4 title-home-1">
       <h4 class="mb-4">Data Destination</h4>
       <a
-        class="btn-mulai px-3 py-2 align-self-center"
+        class="btn-mulai align-self-center"
         href="/admin/destination/create"
         role="button"
         >Tambah</a

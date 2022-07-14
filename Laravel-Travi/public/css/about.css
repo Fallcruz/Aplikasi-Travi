@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans:100,200,300,400,500,600,700,800");
+@import url("https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800");
+
+.navbar .navbar-brand.travi {
+    color: rgb(61, 163, 14);
+    font-family: "Josefin Sans";
+    font-size: 32px;
+    font-weight: 700;
+    margin-top: 2px;
+    text-decoration: none;
+}
+.navbar .navbar-brand.travi:hover {
+    color: rgb(61, 163, 14);
+}
+.navbar .navbar-nav .nav-item .nav-link {
+    font-family: "Kanit";
+    font-size: 17px;
+    font-weight: 300;
+}
+.navbar .navbar-nav .nav-item .nav-link.active {
+    color: rgb(61, 163, 14);
+    font-weight: 500;
+}
+.container .travi-logo {
+    color: rgb(61, 163, 14);
+    font-family: "Josefin Sans";
+    font-size: 80px;
+    font-weight: 700;
+    text-decoration: none;
+}
+.container .travi-logo:hover {
+    color: rgb(61, 163, 14);
+}

@@ -43,7 +43,7 @@
             <a class="nav-link" href="/tour-package/create">Join Us</a>
           </li>
           <li class="nav-item me-2">
-            <a class="nav-link" href="">About</a>
+            <a class="nav-link" href="/about">About</a>
           </li>
         </ul>
       </div>
