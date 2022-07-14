@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans:100,200,300,400,500,600,700,800");
+@import url("https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800");
+
+.navbar .navbar-brand.travi {
+  color: rgb(61, 163, 14);
+  font-family: "Josefin Sans";
+  font-size: 32px;
+  font-weight: 700;
+  margin-top: 2px;
+  text-decoration: none;
+}
+.navbar .navbar-brand.travi:hover {
+  color: rgb(61, 163, 14);
+}
+.navbar .navbar-nav .nav-item .nav-link {
+  font-family: "Kanit";
+  font-size: 17px;
+  font-weight: 300;
+}
+.navbar .navbar-nav .nav-item .nav-link.active {
+  color: rgb(61, 163, 14);
+  font-weight: 500;
+}
+.bg-home-1 {
+  color: white;
+  background-image: url("/Gambar/bg-1.png");
+  height: 400px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.home-1 {
+  padding-left: 80px;
+  padding-top: 50px;
+}
+.judul-home {
+  font-family: "Josefin Sans";
+  font-size: 40px;
+  font-weight: 600;
+  width: 350px;
+  padding-top: 20px;
+}
+.desc-home {
+  font-family: "Kanit";
+  font-size: 16px;
+  font-weight: 300;
+  width: 550px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  padding-right: 45px;
+}
+.bg-home-1 .btn-search {
+  background-color: rgb(61, 163, 14);
+  color: white;
+  border-radius: 8px;
+}
+.home-2 {
+  padding-top: 70px;
+}
+.home-2 .title-home-2 {
+  font-family: "Josefin Sans";
+}
+.home-2 .desc-home-2 {
+  font-family: "Kanit";
+  font-weight: 300;
+}
+.home-2 .btn-mulai {
+  background-color: rgb(61, 163, 14);
+  color: white;
+  font-family: "Josefin Sans";
+  font-weight: 600;
+  height: 100px;
+  padding: 20px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+.home-3 {
+  padding-top: 90px;
+}
+.circle-1 {
+  background-image: url("/Gambar/img-1.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 185px;
+  height: 185px;
+  border-radius: 50%;
+}
+.circle-2 {
+  background-image: url("/Gambar/pecak.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 185px;
+  height: 185px;
+  border-radius: 50%;
+}
+.circle-3 {
+  background-image: url("/Gambar/Labuh-Sesaji.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 185px;
+  height: 185px;
+  border-radius: 50%;
+}
+.home-4 {
+  padding-top: 90px;
+}
+.home-4 .partner {
+  font-family: "Josefin Sans";
+  color: rgb(159, 159, 159);
+}

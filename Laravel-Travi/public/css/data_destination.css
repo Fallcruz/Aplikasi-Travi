@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans:100,200,300,400,500,600,700,800");
+@import url("https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800");
+
+.navbar .navbar-brand.travi {
+  color: rgb(61, 163, 14);
+  font-family: "Josefin Sans";
+  font-size: 32px;
+  font-weight: 700;
+  margin-top: 2px;
+  text-decoration: none;
+}
+.navbar .navbar-brand.travi:hover {
+  color: rgb(61, 163, 14);
+}
+.navbar .navbar-nav .nav-item .nav-link {
+  font-family: "Kanit";
+  font-size: 17px;
+  font-weight: 300;
+}
+.navbar .navbar-nav .nav-item .nav-link.active {
+  color: rgb(61, 163, 14);
+  font-weight: 500;
+}
+.bg-home-1 {
+  color: black;
+  background-image: url("/Gambar/bg-1.png");
+  height: 100px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.title-home-1 {
+  font-family: "Josefin Sans";
+}
+.title-home-1 .btn-mulai {
+  background-color: rgb(61, 163, 14);
+  color: white;
+  font-family: "Josefin Sans";
+  font-weight: 600;
+  height: 100px;
+  border-radius: 8px;
+  text-decoration: none;
+}
