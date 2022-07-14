@@ -191,10 +191,11 @@ class _DetailDestinationState extends State<DetailDestination> {
         title: const Text(
           'Destination',
           style: TextStyle(
-              color: Colors.green,
-              fontSize: 20,
-              fontFamily: 'Poppins',
-              fontWeight: FontWeight.bold),
+            color: Colors.green,
+            fontSize: 20,
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.bold
+          ),
         ),
         centerTitle: true,
       ),
@@ -216,44 +217,50 @@ class _DetailDestinationState extends State<DetailDestination> {
                     Text(
                       arguments.judul,
                       style: const TextStyle(
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w600,
-                          fontSize: 16,
-                          letterSpacing: 0.6),
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16,
+                        letterSpacing: 0.6
+                      ),
                     ),
                     const SizedBox(height: 12),
                     Text.rich(TextSpan(
-                        style: const TextStyle(
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w300,
-                            fontSize: 13,
-                            letterSpacing: 0.4),
-                        children: [
-                          const TextSpan(
-                              text: 'Lokasi : ',
-                              style: TextStyle(fontWeight: FontWeight.bold)),
-                          TextSpan(text: arguments.lokasi),
-                        ])),
+                      style: const TextStyle(
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w300,
+                        fontSize: 13,
+                        letterSpacing: 0.4
+                      ),
+                      children: [
+                        const TextSpan(
+                          text: 'Lokasi : ',
+                          style: TextStyle(fontWeight: FontWeight.bold)),
+                        TextSpan(text: arguments.lokasi),
+                      ])
+                    ),
                     Text.rich(TextSpan(
-                        style: const TextStyle(
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w300,
-                            fontSize: 13,
-                            letterSpacing: 0.4),
-                        children: [
-                          const TextSpan(
-                              text: 'Dibuat Pada : ',
-                              style: TextStyle(fontWeight: FontWeight.bold)),
-                          TextSpan(text: arguments.createdAt.split('T')[0]),
-                        ])),
+                      style: const TextStyle(
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w300,
+                        fontSize: 13,
+                        letterSpacing: 0.4
+                      ),
+                      children: [
+                        const TextSpan(
+                          text: 'Dibuat Pada : ',
+                          style: TextStyle(fontWeight: FontWeight.bold)),
+                        TextSpan(text: arguments.createdAt.split('T')[0]),
+                      ])
+                    ),
                     const SizedBox(height: 12),
                     Html(
                       data: arguments.deskripsi,
                       defaultTextStyle: const TextStyle(
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w300,
-                          fontSize: 13,
-                          letterSpacing: 0.4),
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w300,
+                        fontSize: 13,
+                        letterSpacing: 0.4
+                      ),
                     ),
                   ],
                 ),
