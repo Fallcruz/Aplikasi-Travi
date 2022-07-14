@@ -161,161 +161,177 @@ class _AdminPageState extends State<AdminPage> {
                       child: CircularProgressIndicator(),
                     );
                   } else {
-                    return SizedBox(
-                      width: MediaQuery.of(context).size.width,
-                      height: 200,
-                      child: ListView.builder(
-                        itemCount: snapshot.data.length,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (context, index) {
-                          return Container(
-                            width: 360,
+                    return Padding(
+                      padding: const EdgeInsets.only(left: 15),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 15, left: 15),
+                            child: Text('Data : ' + snapshot.data.length.toString()),
+                          ),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width,
                             height: 200,
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 10, vertical: 10),
-                            margin: const EdgeInsets.symmetric(horizontal: 10),
-                            child: Row(
-                              children: [
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(20),
-                                  child: Image.network(
-                                    '${dotenv.env['URL']}/Gambar/destinations/' +
-                                        snapshot.data[index].gambar,
-                                    width: 150,
-                                    height: 200,
-                                    fit: BoxFit.cover,
+                            child: ListView.builder(
+                              itemCount: snapshot.data.length,
+                              scrollDirection: Axis.horizontal,
+                              itemBuilder: (context, index) {
+                                return Container(
+                                  width: 360,
+                                  height: 200,
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 10, vertical: 10),
+                                  margin: const EdgeInsets.symmetric(horizontal: 10),
+                                  decoration: BoxDecoration(
+                                    border: Border.all(color: Colors.black, width: 1),
+                                    borderRadius: BorderRadius.circular(30)
                                   ),
-                                ),
-                                const SizedBox(width: 15),
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    SizedBox(
-                                      width: 170,
-                                      child: Text(
-                                        snapshot.data[index].judul,
-                                        style: const TextStyle(
-                                            fontFamily: 'Poppins',
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold),
+                                  child: Row(
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.circular(20),
+                                        child: Image.network(
+                                          '${dotenv.env['URL']}/Gambar/destinations/' +
+                                              snapshot.data[index].gambar,
+                                          width: 150,
+                                          height: 200,
+                                          fit: BoxFit.cover,
+                                        ),
                                       ),
-                                    ),
-                                    const SizedBox(height: 10),
-                                    Row(
-                                      children: [
-                                        ElevatedButton(
-                                            onPressed: () {
-                                              showDialog(
-                                                  context: context,
-                                                  builder: (ctx) {
-                                                    return AlertDialog(
-                                                      content: const Text(
-                                                          "Apakah anda yakin ingin menghapusnya?"),
-                                                      actions: [
-                                                        TextButton(
-                                                          onPressed: () {
-                                                            Navigator.pop(
-                                                                context);
-                                                          },
-                                                          child: const Text(
-                                                              'Close'),
-                                                        ),
-                                                        TextButton(
-                                                          onPressed: () async {
-                                                            var url = '${dotenv.env['URL']}/api/admin/destination/' +
-                                                                snapshot
-                                                                    .data[index]
-                                                                    .id
-                                                                    .toString();
-                                                            await Dio()
-                                                                .delete(url);
-                                                            Navigator.pop(
-                                                                context);
-                                                            setState(() {});
-                                                          },
-                                                          child:
-                                                              const Text('Ok'),
-                                                        )
-                                                      ],
-                                                    );
-                                                  });
-                                            },
-                                            style: ElevatedButton.styleFrom(
-                                                shape: RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            12)),
-                                                primary: Colors.red),
-                                            child: Row(
-                                              children: const [
-                                                Icon(Icons.delete_forever,
-                                                    size: 18),
-                                                Text(
-                                                  'Delete',
-                                                  style: TextStyle(
-                                                      fontFamily: 'Poppins',
-                                                      fontSize: 12),
-                                                ),
-                                              ],
-                                            )),
-                                        const SizedBox(width: 8),
-                                        ElevatedButton(
-                                            onPressed: (() {
-                                              Navigator.push(
-                                                  context,
-                                                  MaterialPageRoute(
-                                                      builder: (context) => EditDestinationPage(
-                                                          destination: Destination(
-                                                              snapshot
-                                                                  .data[index]
-                                                                  .id,
-                                                              snapshot
-                                                                  .data[index]
-                                                                  .judul,
-                                                              snapshot
-                                                                  .data[index]
-                                                                  .lokasi,
-                                                              snapshot
-                                                                  .data[index]
-                                                                  .deskripsi,
-                                                              snapshot
-                                                                  .data[index]
-                                                                  .excerpt,
-                                                              '${dotenv.env['URL']}/Gambar/destinations/' +
-                                                                  snapshot
-                                                                      .data[index]
-                                                                      .gambar,
-                                                              snapshot
-                                                                  .data[index]
-                                                                  .createdAt))));
-                                            }),
-                                            style: ElevatedButton.styleFrom(
-                                                shape: RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            12)),
-                                                primary: Colors.yellow[700]),
-                                            child: Row(
-                                              children: const [
-                                                Icon(Icons.edit,
-                                                    size: 18),
-                                                Text(
-                                                  'Edit',
-                                                  style: TextStyle(
-                                                      fontFamily: 'Poppins',
-                                                      fontSize: 12),
-                                                ),
-                                              ],
-                                            ))
-                                      ],
-                                    )
-                                  ],
-                                )
-                              ],
+                                      const SizedBox(width: 15),
+                                      Column(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          SizedBox(
+                                            width: 170,
+                                            child: Text(
+                                              snapshot.data[index].judul,
+                                              style: const TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                          ),
+                                          const SizedBox(height: 10),
+                                          Row(
+                                            children: [
+                                              ElevatedButton(
+                                                  onPressed: () {
+                                                    showDialog(
+                                                        context: context,
+                                                        builder: (ctx) {
+                                                          return AlertDialog(
+                                                            content: const Text(
+                                                                "Apakah anda yakin ingin menghapusnya?"),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () {
+                                                                  Navigator.pop(
+                                                                      context);
+                                                                },
+                                                                child: const Text(
+                                                                    'Close'),
+                                                              ),
+                                                              TextButton(
+                                                                onPressed: () async {
+                                                                  var url = '${dotenv.env['URL']}/api/admin/destination/' +
+                                                                      snapshot
+                                                                          .data[index]
+                                                                          .id
+                                                                          .toString();
+                                                                  await Dio()
+                                                                      .delete(url);
+                                                                  Navigator.pop(
+                                                                      context);
+                                                                  setState(() {});
+                                                                },
+                                                                child:
+                                                                    const Text('Ok'),
+                                                              )
+                                                            ],
+                                                          );
+                                                        });
+                                                  },
+                                                  style: ElevatedButton.styleFrom(
+                                                      shape: RoundedRectangleBorder(
+                                                          borderRadius:
+                                                              BorderRadius.circular(
+                                                                  12)),
+                                                      primary: Colors.red),
+                                                  child: Row(
+                                                    children: const [
+                                                      Icon(Icons.delete_forever,
+                                                          size: 18),
+                                                      Text(
+                                                        'Delete',
+                                                        style: TextStyle(
+                                                            fontFamily: 'Poppins',
+                                                            fontSize: 12),
+                                                      ),
+                                                    ],
+                                                  )),
+                                              const SizedBox(width: 8),
+                                              ElevatedButton(
+                                                  onPressed: (() {
+                                                    Navigator.push(
+                                                        context,
+                                                        MaterialPageRoute(
+                                                            builder: (context) => EditDestinationPage(
+                                                                destination: Destination(
+                                                                    snapshot
+                                                                        .data[index]
+                                                                        .id,
+                                                                    snapshot
+                                                                        .data[index]
+                                                                        .judul,
+                                                                    snapshot
+                                                                        .data[index]
+                                                                        .lokasi,
+                                                                    snapshot
+                                                                        .data[index]
+                                                                        .deskripsi,
+                                                                    snapshot
+                                                                        .data[index]
+                                                                        .excerpt,
+                                                                    '${dotenv.env['URL']}/Gambar/destinations/' +
+                                                                        snapshot
+                                                                            .data[index]
+                                                                            .gambar,
+                                                                    snapshot
+                                                                        .data[index]
+                                                                        .createdAt))));
+                                                  }),
+                                                  style: ElevatedButton.styleFrom(
+                                                      shape: RoundedRectangleBorder(
+                                                          borderRadius:
+                                                              BorderRadius.circular(
+                                                                  12)),
+                                                      primary: Colors.yellow[700]),
+                                                  child: Row(
+                                                    children: const [
+                                                      Icon(Icons.edit,
+                                                          size: 18),
+                                                      Text(
+                                                        'Edit',
+                                                        style: TextStyle(
+                                                            fontFamily: 'Poppins',
+                                                            fontSize: 12),
+                                                      ),
+                                                    ],
+                                                  ))
+                                            ],
+                                          )
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                );
+                              },
                             ),
-                          );
-                        },
+                          ),
+                        ],
                       ),
                     );
                   }

@@ -132,25 +132,40 @@ class _DestinationPageState extends State<DestinationPage> {
                                             letterSpacing: 0.6),
                                       ),
                                       const SizedBox(height: 12),
-                                      Text(
-                                        'Lokasi : ' +
-                                            snapshot.data[index].lokasi,
-                                        style: const TextStyle(
-                                            fontFamily: 'Poppins',
-                                            fontWeight: FontWeight.w300,
-                                            fontSize: 13,
-                                            letterSpacing: 0.4),
-                                      ),
-                                      Text(
-                                        'Dibuat pada : ' +
-                                            snapshot.data[index].created_at
-                                                .split('T')[0],
-                                        style: const TextStyle(
-                                            fontFamily: 'Poppins',
-                                            fontWeight: FontWeight.w300,
-                                            fontSize: 13,
-                                            letterSpacing: 0.4),
-                                      ),
+                                      Text.rich(TextSpan(
+                                          style: const TextStyle(
+                                              fontFamily: 'Poppins',
+                                              fontWeight: FontWeight.w300,
+                                              fontSize: 13,
+                                              letterSpacing: 0.4),
+                                          children: [
+                                            const TextSpan(
+                                                text: 'Lokasi : ',
+                                                style: TextStyle(
+                                                    fontWeight:
+                                                        FontWeight.bold)),
+                                            TextSpan(
+                                                text: snapshot
+                                                    .data[index].lokasi),
+                                          ])),
+                                      Text.rich(TextSpan(
+                                          style: const TextStyle(
+                                              fontFamily: 'Poppins',
+                                              fontWeight: FontWeight.w300,
+                                              fontSize: 13,
+                                              letterSpacing: 0.4),
+                                          children: [
+                                            const TextSpan(
+                                                text: 'Dibuat Pada : ',
+                                                style: TextStyle(
+                                                    fontWeight:
+                                                        FontWeight.bold)),
+                                            TextSpan(
+                                                text: snapshot
+                                                    .data[index].created_at
+                                                    .split('T')[0]),
+                                          ])),
+                                      const SizedBox(height: 8),
                                       Text(
                                         snapshot.data[index].excerpt,
                                         style: const TextStyle(
@@ -222,22 +237,31 @@ class _DetailDestinationState extends State<DetailDestination> {
                           letterSpacing: 0.6),
                     ),
                     const SizedBox(height: 12),
-                    Text(
-                      'Lokasi : ' + arguments.lokasi,
-                      style: const TextStyle(
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w300,
-                          fontSize: 13,
-                          letterSpacing: 0.4),
-                    ),
-                    Text(
-                      'Dibuat pada : ' + arguments.created_at.split('T')[0],
-                      style: const TextStyle(
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w300,
-                          fontSize: 13,
-                          letterSpacing: 0.4),
-                    ),
+                    Text.rich(TextSpan(
+                        style: const TextStyle(
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w300,
+                            fontSize: 13,
+                            letterSpacing: 0.4),
+                        children: [
+                          const TextSpan(
+                              text: 'Lokasi : ',
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                          TextSpan(text: arguments.lokasi),
+                        ])),
+                    Text.rich(TextSpan(
+                        style: const TextStyle(
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w300,
+                            fontSize: 13,
+                            letterSpacing: 0.4),
+                        children: [
+                          const TextSpan(
+                              text: 'Dibuat Pada : ',
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                          TextSpan(text: arguments.created_at.split('T')[0]),
+                        ])),
+                    const SizedBox(height: 12),
                     Html(
                       data: arguments.deskripsi,
                       defaultTextStyle: const TextStyle(

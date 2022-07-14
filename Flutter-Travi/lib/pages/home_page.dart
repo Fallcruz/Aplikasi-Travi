@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travi_app/pages/admin_page.dart';
 import 'package:travi_app/pages/login_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -16,7 +17,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.white,
         title: GestureDetector(
           onTap: (() {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => AdminPage()));
           }),
           child: Center(
             child: Image.asset(
@@ -62,7 +63,7 @@ class _HomePageState extends State<HomePage> {
                             'Pengalaman terbaru anda berada di tempat yang jarang untuk kita kunjungi, mengenal adat dan budaya di suatu daerah',
                             style: TextStyle(
                               fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w500,
+                              fontWeight: FontWeight.w400,
                               fontSize: 13,
                               color: Colors.white,
                               letterSpacing: 0.4
