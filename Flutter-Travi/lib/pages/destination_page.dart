@@ -144,8 +144,7 @@ class _DestinationPageState extends State<DestinationPage> {
                                         fontWeight: FontWeight.bold
                                       )
                                     ),
-                                    TextSpan(
-                                      text: snapshot.data[index].createdAt.split('T')[0]),
+                                    TextSpan(text: snapshot.data[index].createdAt.split('T')[0]),
                                   ])),
                                 const SizedBox(height: 8),
                                 Text(
