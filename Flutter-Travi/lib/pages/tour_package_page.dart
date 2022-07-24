@@ -93,11 +93,13 @@ Card cardWidget({
           Container(
             margin: const EdgeInsets.only(top: 4, left: 8),
             child: Text(currencyFormatter.format(price).toString(),
-                style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'Poppins',
-                    fontSize: 13),
-                overflow: TextOverflow.ellipsis),
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Poppins',
+                fontSize: 13
+              ),
+              overflow: TextOverflow.ellipsis
+            ),
           ),
         ],
       ),
@@ -109,10 +111,8 @@ var url = dotenv.env['URL'];
 
 Future<List<TourPackage>> fetchTourPackages() async {
   final response = await http.get(Uri.parse("$url/api/tour-package"));
-
   List<dynamic> body = jsonDecode(response.body);
-  List<TourPackage> tourPackages =
-      body.map((dynamic item) => TourPackage.fromJson(item)).toList();
+  List<TourPackage> tourPackages = body.map((dynamic item) => TourPackage.fromJson(item)).toList();
   return tourPackages;
 }
 
@@ -145,10 +145,11 @@ class _TourPackagePageState extends State<TourPackagePage> {
           child: Text(
             'Tour Package',
             style: TextStyle(
-                color: Colors.green,
-                fontSize: 20,
-                fontFamily: 'Poppins',
-                fontWeight: FontWeight.bold),
+              color: Colors.green,
+              fontSize: 20,
+              fontFamily: 'Poppins',
+              fontWeight: FontWeight.bold
+            ),
           ),
         ),
       ),
@@ -163,52 +164,54 @@ class _TourPackagePageState extends State<TourPackagePage> {
                     'Temukan paket tour impian mu disini...',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        fontSize: 14.8,
-                        fontFamily: 'Poppins',
-                        color: Colors.black),
+                      fontSize: 14.8,
+                      fontFamily: 'Poppins',
+                      color: Colors.black
+                    ),
                   ),
                 ),
               ],
             ),
           ),
           Expanded(
-              child: FutureBuilder<List<TourPackage>>(
-            future: futureTourPackages,
-            builder: (context, snapshot) {
-              if (snapshot.data != null) {
-                return GridView.builder(
-                  primary: false,
-                  padding: const EdgeInsets.all(10),
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 10,
-                    mainAxisExtent: 225, // here set custom Height You Want
-                  ),
-                  itemCount: snapshot.data!.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return cardWidget(
-                        image: 
-                            '$url/Gambar/Tour%20Package/' +
-                            snapshot.data![index].image,
-                        packageName: snapshot.data![index].packageName,
-                        travelName: snapshot.data![index].travelName,
-                        duration: snapshot.data![index].duration,
-                        price: snapshot.data![index].price,
-                        email: snapshot.data![index].email,
-                        phoneNumber: snapshot.data![index].phoneNumber,
-                        address: snapshot.data![index].address,
-                        activity: snapshot.data![index].activity,
-                        description: snapshot.data![index].description,
-                        service: snapshot.data![index].service,
-                        context: context);
-                  },
-                );
-              } else {
-                return const Center(child: CircularProgressIndicator());
-              }
-            },
-          ))
+            child: FutureBuilder<List<TourPackage>>(
+              future: futureTourPackages,
+              builder: (context, snapshot) {
+                if (snapshot.data != null) {
+                  return GridView.builder(
+                    primary: false,
+                    padding: const EdgeInsets.all(10),
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 10,
+                      mainAxisExtent: 225, // here set custom Height You Want
+                    ),
+                    itemCount: snapshot.data!.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return cardWidget(
+                          image: 
+                              '$url/Gambar/Tour%20Package/' +
+                              snapshot.data![index].image,
+                          packageName: snapshot.data![index].packageName,
+                          travelName: snapshot.data![index].travelName,
+                          duration: snapshot.data![index].duration,
+                          price: snapshot.data![index].price,
+                          email: snapshot.data![index].email,
+                          phoneNumber: snapshot.data![index].phoneNumber,
+                          address: snapshot.data![index].address,
+                          activity: snapshot.data![index].activity,
+                          description: snapshot.data![index].description,
+                          service: snapshot.data![index].service,
+                          context: context);
+                    },
+                  );
+                } else {
+                  return const Center(child: CircularProgressIndicator());
+                }
+              },
+            )
+          )
         ],
       ),
     );
