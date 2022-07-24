@@ -5,19 +5,19 @@ import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-Card cardWidget(
-    {image,
-    packageName,
-    travelName,
-    duration,
-    price,
-    email,
-    phoneNumber,
-    address,
-    activity,
-    description,
-    service,
-    context}) {
+Card cardWidget({
+  image,
+  packageName,
+  travelName,
+  duration,
+  price,
+  email,
+  phoneNumber,
+  address,
+  activity,
+  description,
+  service,
+  context}) {
   NumberFormat currencyFormatter = NumberFormat.currency(
     locale: 'id',
     symbol: 'Rp ',
@@ -30,18 +30,20 @@ Card cardWidget(
     child: InkWell(
       onTap: () {
         Navigator.pushNamed(context, '/tour-package/detail',
-            arguments: TourPackage(
-                image: image,
-                packageName: packageName,
-                travelName: travelName,
-                duration: duration,
-                price: price,
-                email: email,
-                phoneNumber: phoneNumber,
-                address: address,
-                activity: activity,
-                description: description,
-                service: service));
+          arguments: TourPackage(
+            image: image,
+            packageName: packageName,
+            travelName: travelName,
+            duration: duration,
+            price: price,
+            email: email,
+            phoneNumber: phoneNumber,
+            address: address,
+            activity: activity,
+            description: description,
+            service: service
+          )
+        );
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
