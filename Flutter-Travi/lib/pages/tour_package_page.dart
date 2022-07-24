@@ -59,9 +59,10 @@ Card cardWidget({
             child: Text(
               packageName,
               style: const TextStyle(
-                  color: Colors.black87,
-                  fontFamily: 'Poppins',
-                  fontWeight: FontWeight.w500),
+                color: Colors.black87,
+                fontFamily: 'Poppins',
+                fontWeight: FontWeight.w500
+              ),
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
             ),
@@ -71,16 +72,23 @@ Card cardWidget({
             child: Text(
               travelName,
               style: const TextStyle(
-                  fontFamily: 'Poppins', fontSize: 13, color: Colors.grey),
+                fontFamily: 'Poppins', 
+                fontSize: 13, 
+                color: Colors.grey
+              ),
               overflow: TextOverflow.ellipsis,
             ),
           ),
           Container(
             margin: const EdgeInsets.only(top: 4, left: 8),
             child: Text(duration,
-                style: const TextStyle(
-                    fontFamily: 'Poppins', fontSize: 13, color: Colors.grey),
-                overflow: TextOverflow.ellipsis),
+              style: const TextStyle(
+                fontFamily: 'Poppins', 
+                fontSize: 13, 
+                color: Colors.grey
+              ),
+              overflow: TextOverflow.ellipsis
+            ),
           ),
           Container(
             margin: const EdgeInsets.only(top: 4, left: 8),
